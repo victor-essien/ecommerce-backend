@@ -8,7 +8,7 @@ export interface IProduct extends Document {
     category:string,
     stock:number,
     ratings: number;
-    seller: mongoose.Types.ObjectId;
+    sellerId: mongoose.Types.ObjectId;
 }
 
 const ProductSchema = new Schema<IProduct>({
@@ -19,7 +19,7 @@ const ProductSchema = new Schema<IProduct>({
     category: {types: String, required: true},
     stock: {types: Number, required: true},
     ratings: {types: Number, default: 0},
-    seller: {types: mongoose.Types.ObjectId, ref: "User", required: true}
+    sellerId: {types: mongoose.Types.ObjectId, ref: "User", required: true}
 }, {
     timestamps: true
 })
